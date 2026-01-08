@@ -13,7 +13,7 @@ from core import GenerationConfig
 
 class TaskConfig(GenerationConfig):
     """
-    Color Mixing task configuration.
+    Symbol Worlds - Symbol Editing - Substitute Symbol task configuration.
 
     CUSTOMIZE THIS CLASS to add your task's hyperparameters.
 
@@ -30,7 +30,7 @@ class TaskConfig(GenerationConfig):
     #  OVERRIDE DEFAULTS
     # ══════════════════════════════════════════════════════════════════════════
 
-    domain: str = Field(default="color_mixing")
+    domain: str = Field(default="symbol_worlds_symbol_editing")
     image_size: tuple[int, int] = Field(default=(512, 512))
 
     # ══════════════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ class TaskConfig(GenerationConfig):
     )
 
     video_fps: int = Field(
-        default=10,
+        default=15,
         description="Video frame rate"
     )
 
@@ -51,17 +51,37 @@ class TaskConfig(GenerationConfig):
     #  TASK-SPECIFIC SETTINGS
     # ══════════════════════════════════════════════════════════════════════════
 
-    light_radius: int = Field(
-        default=80,
-        description="Radius of light sources in pixels"
+    symbol_size: int = Field(
+        default=60,
+        description="Size of each symbol in pixels"
     )
 
-    mixing_zone_size: int = Field(
-        default=120,
-        description="Size of the mixing zone square in pixels"
-    )
-
-    mixing_zone_border_width: int = Field(
+    min_sequence_length: int = Field(
         default=3,
-        description="Border width of mixing zone marker"
+        description="Minimum number of symbols in the sequence"
+    )
+
+    max_sequence_length: int = Field(
+        default=7,
+        description="Maximum number of symbols in the sequence"
+    )
+
+    symbol_spacing: int = Field(
+        default=80,
+        description="Horizontal spacing between symbols in pixels"
+    )
+
+    target_border_width: int = Field(
+        default=4,
+        description="Width of the red border marking the target symbol to substitute"
+    )
+
+    target_border_color: tuple[int, int, int] = Field(
+        default=(255, 0, 0),
+        description="Color of the border marking the target symbol to substitute (red)"
+    )
+
+    target_border_padding: int = Field(
+        default=8,
+        description="Padding between symbol and target border in pixels"
     )

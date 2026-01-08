@@ -11,9 +11,9 @@ if Path("requirements.txt").exists():
         requirements = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
 setup(
-    name="color-mixing-data-generator",
+    name="symbol-substitution-data-generator",
     version="1.0.0",
-    description="Color mixing (additive) reasoning task generator",
+    description="Symbol substitution reasoning task generator for Symbol Worlds - Symbol Editing domain",
     long_description=readme,
     long_description_content_type="text/markdown",
     packages=find_packages(include=["core", "core.*", "src", "src.*"]),

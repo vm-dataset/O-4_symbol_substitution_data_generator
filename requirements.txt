@@ -6,10 +6,12 @@ pydantic==2.10.5
 # Video generation
 opencv-python==4.10.0.84
 
-# Color mixing task has no additional dependencies
-# Core libraries (numpy, Pillow) are sufficient for color operations
+# Symbol substitution task dependencies
+# Core libraries (Pillow) are sufficient for symbol rendering and transformation
+# math module is used for geometric shape generation (part of Python standard library)
+# numpy is used for potential array operations
 
 # Add your task-specific dependencies here if needed
 # Examples:
-# networkx==3.0  # For graph-based tasks (maze)
+# networkx==3.0  # For graph-based tasks
 # scipy==1.11.0  # For scientific computing
